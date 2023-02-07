@@ -22,29 +22,29 @@ export const addTask = (evento) => {
 
 
     const taskList = JSON.parse(localStorage.getItem('tasks')) || [];
-    taskList.push({taskObj});
+    taskList.push(taskObj);
     localStorage.setItem('tasks', JSON.stringify(taskList));
 
     const task = createTask(taskObj);
     list.appendChild(task);
 };
 
-const createTask = ({value,dateFormat}) => {
-
-  const task = document.createElement('li');
-  task.classList.add('card');
-  const taskContent = document.createElement('div');
+export const createTask = ({value,dateFormat}) => {
+    
+    const task = document.createElement('li');
+    task.classList.add('card');
+    const taskContent = document.createElement('div');
+    
+    const titleTask = document.createElement('span');
+    titleTask.classList.add('task');
+    titleTask.innerText = value;
+    taskContent.appendChild(checkComplete());
+    taskContent.appendChild(titleTask);
   
-  const titleTask = document.createElement('span');
-  titleTask.classList.add('task');
-  titleTask.innerText = value;
-  taskContent.appendChild(checkComplete());
-  taskContent.appendChild(titleTask);
-  // task.innerHTML = content;
-  const dateElement = document.createElement('span');
-  dateElement.innerHTML = dateFormat;
-  task.appendChild(taskContent);
-  task.appendChild(dateElement);
-  task.appendChild(deleteIcon());
-  return task;
+    const dateElement = document.createElement('span');
+    dateElement.innerHTML = dateFormat;
+    task.appendChild(taskContent);
+    task.appendChild(dateElement);
+    task.appendChild(deleteIcon());
+    return task;
 };
