@@ -1,6 +1,6 @@
 import { createTask } from './addTask.js';
 import { uniqueDates } from '../services/date.js';
-import {dateElement} from './dateElement.js';
+import dateElement from './dateElement.js';
 
 export const displayTasks = () => {
   const list = document.querySelector('[data-list]');

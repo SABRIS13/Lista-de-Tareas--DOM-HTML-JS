@@ -6,8 +6,8 @@ const deleteIcon=()=>{
     return i;
 }
 
-const deleteTask=(evento)=>{
-    const parent =evento.target.parentElement;
+const deleteTask=(event)=>{
+    const parent =event.target.parentElement;
     parent.remove();
 };
 
